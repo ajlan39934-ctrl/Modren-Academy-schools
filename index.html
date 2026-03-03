@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<title>كرت معايدة المدرسة</title>
+
+<style>
+body {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+    direction: rtl;
+}
+
+h1 {
+    margin-top: 30px;
+    color: #0a3d62; /* لون اسم المدرسة */
+}
+
+h2 {
+    margin-bottom: 20px;
+}
+
+input {
+    padding: 10px;
+    font-size: 18px;
+    width: 300px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.card {
+    width: 1200px;   /*  عرض صوره */
+    height: 1000px;   /* ارتفاع صوره */
+    background: url('card.png') no-repeat center;
+    background-size: cover;
+    margin: 30px auto;
+    position: relative;
+    display: none;
+    border-radius: 20px;
+}
+
+/* مكان الاسم داخل الكرت */
+.name {
+    position: absolute;
+    bottom: 150px;      /* المسافة من أسفل الصورة */
+    width: 100%;
+    font-size: 70px;    /* حجم الخط */
+    font-weight: bold;
+    color: #004aad;     //
+    text-align: center;
+}
+</style>
+
+</head>
+<body>
+
+<h1>مدارس الأكاديمية العصرية</h1>
+<h2>اكتب اسمك واستلم تهنئة عيد الفطر 🎉</h2>
+
+<input type="text" id="studentName" placeholder="اكتب اسمك هنا">
+<button onclick="generateCard()">إنشاء الكرت</button>
+
+<div class="card" id="card">
+    <div class="name" id="nameDisplay"></div>
+</div>
+
+<script>
+function generateCard() {
+    var name = document.getElementById("studentName").value;
+
+    if(name.trim() === "") {
+        alert("اكتب اسمك أولاً");
+        return;
+    }
+
+    document.getElementById("nameDisplay").innerText = name;
+    document.getElementById("card").style.display = "block";
+}
+</script>
+
+</body>
+</html>
